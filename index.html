@@ -4,10 +4,8 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Kings.ge - API Reference</title>
 
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -16,11 +14,11 @@
   background-color: #272822;
 }
 .highlight .err {
-  color: #151515;
-  background-color: #ac4142;
+  color: #272822;
+  background-color: #f92672;
 }
 .highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
-  color: #505050;
+  color: #75715e;
 }
 .highlight .cp {
   color: #f4bf75;
@@ -29,45 +27,45 @@
   color: #f4bf75;
 }
 .highlight .o, .highlight .ow {
-  color: #d0d0d0;
+  color: #f8f8f2;
 }
 .highlight .p, .highlight .pi {
-  color: #d0d0d0;
+  color: #f8f8f2;
 }
 .highlight .gi {
-  color: #90a959;
+  color: #a6e22e;
 }
 .highlight .gd {
-  color: #ac4142;
+  color: #f92672;
 }
 .highlight .gh {
-  color: #6a9fb5;
-  background-color: #151515;
+  color: #66d9ef;
+  background-color: #272822;
   font-weight: bold;
 }
 .highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #aa759f;
+  color: #ae81ff;
 }
 .highlight .kc {
-  color: #d28445;
+  color: #fd971f;
 }
 .highlight .kt {
-  color: #d28445;
+  color: #fd971f;
 }
 .highlight .kd {
-  color: #d28445;
+  color: #fd971f;
 }
 .highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
-  color: #90a959;
+  color: #a6e22e;
 }
 .highlight .sr {
-  color: #75b5aa;
+  color: #a1efe4;
 }
 .highlight .si {
-  color: #8f5536;
+  color: #cc6633;
 }
 .highlight .se {
-  color: #8f5536;
+  color: #cc6633;
 }
 .highlight .nn {
   color: #f4bf75;
@@ -79,31 +77,31 @@
   color: #f4bf75;
 }
 .highlight .na {
-  color: #6a9fb5;
+  color: #66d9ef;
 }
 .highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
-  color: #90a959;
+  color: #a6e22e;
 }
 .highlight .ss {
-  color: #90a959;
+  color: #a6e22e;
 }
     </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+  <body class="index" data-languages="[&quot;http&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" />
+        <img src="images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="images/logo.png" />
+      <img src="images/logo.png" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="http">http</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -121,149 +119,340 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the kings.ge API</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<h1 id="making-requests">Making Requests</h1>
 
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
+<h2 id="headers">Headers</h2>
+
+<p>HTTP header fields.
+<h3>Accept</h3>
+<p>
+API requires that clients send a valid Accept header with every request. This also voids the default API version and format.
+</p>
+<ul>
+  <li>API versions: <code class="prettyprint">v1</code></li>
+  <li>API formats: <code class="prettyprint">json</code></li>
+</ul></p>
+
+<h2 id="languages">Languages</h2>
+
+<p>
+  Available languages: ka
+</p>
+
+<p>  
+  Request with lang parameter is not neccessary, default language always is georgian.
+</p>
 
 <h1 id="authentication">Authentication</h1>
 
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<!-- ```ruby
+require 'kittn'
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+api = Kittn::APIClient.authorize!('meowmeowmeow')
+```
+
+```python
+import kittn
+
+api = kittn.authorize('meowmeowmeow')
+```
+
+```shell
+# With shell, you can just pass the correct header with each request
+curl "api_endpoint_here"
+  -H "Authorization: meowmeowmeow"
+```
+
+```javascript
+const kittn = require('kittn');
+
+let api = kittn.authorize('meowmeowmeow');
+``` -->
 
 <blockquote>
 <p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>Some api</p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<h1 id="main-page">Main page</h1>
 
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
+<!-- Get menu tree -->
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
+<h2 id="get-menu-tree">Get menu tree</h2>
 
-<h1 id="kittens">Kittens</h1>
+<p>
+  This service retreives menu tree
+</p>
 
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+<p>
+  Tree - Objects
+</p>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"tree"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"title"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>
+  This endpoint retrieves menu tree
+</p>
 
-<p>This endpoint retrieves all kittens.</p>
+<!-- Get slider -->
+
+<h2 id="get-slides">Get slides</h2>
+
+<p>
+  This service retreives all slides
+</p>
+
+<p>
+  Slides - Objects
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"slides"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slideID"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slideImg"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"active"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slideIsActive"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sliderOrderNumb"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ka"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slideCreatedAt"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slideUpdateAt"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SlideLink"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>
+  This endpoint retrieves all slides
+</p>
+
+<p>
+  If is null link - hide show more button   
+</p>
+
+<!-- Get memberCount -->
+
+<h2 id="get-membercount">Get memberCount</h2>
+
+<p>
+  This service retrieve counted members
+</p>
+
+<p>
+  memberCount - Integer
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"memberCount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"memberCount"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>
+  This endpoint retrieves counted members
+</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
+<p><code class="prettyprint">GET http://kings.ge/Api/memberCount</code></p>
+
+<!-- Get registrationIsActive -->
+
+<h2 id="get-registrationisactive">Get registrationIsActive</h2>
+
+<p>
+  This service retrieve register is active or not
+</p>
+
+<p>
+  isActive - Boolean
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"isActive"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>
+  This endpoint retrieves boolean
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/registrationIsActive</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
+<h1 id="pages">Pages</h1>
+
+<h2 id="get-ana-39-s-page">Get Ana&rsquo;s page</h2>
+
+<p>
+  This page is news type and has posts,
+</p>
+
+<p>
+  Posts - Objects
+</p>
+
+<p>
+  PageTitle - Title of page
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"posts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"next_page_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"url"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"prev_page_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemId"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"heading"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ItemTitle"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"cover_photo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemPhoto"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemContent"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemCreatedAt"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemUpdatedAt"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"pageTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"postTitle"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves each post of ana</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/ana</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>page</td>
+<td>For pagination needs parameter e.g : http://kings.ge/Api/ana?page=2</td>
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+<h2 id="get-ana-39-s-each-post">Get Ana&rsquo;s each post</h2>
 
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p>
+  This is detail page of Ana&rsquo;s post
+</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>
+  Post - Object
+</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+<p>
+  PageTitle - Title of page
+</p>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"post"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemId"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"heading"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemTitle"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cover_photo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemPhoto"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemContent"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemCreatedAt"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemUpdatedAt"</span><span class="w">    
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"pageTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pageTitle"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<p>This endpoint retrieves all posts of ana&rsquo;s page.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p><code class="prettyprint">GET http://kings.ge/Api/ana/{id}</code></p>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
 
 <table><thead>
 <tr>
@@ -272,8 +461,697 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>{id}</td>
+<td>For pagination needs parameter e.g : http://kings.ge/Api/ana/{id}</td>
+</tr>
+</tbody></table>
+
+<!-- news page -->
+
+<h2 id="get-news-page">Get news page</h2>
+
+<p>
+  This page is news type and has posts,
+</p>
+
+<p>
+  Posts - Objects
+</p>
+
+<p>
+  PageTitle - Title of page
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"posts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">511</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"next_page_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"url"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"prev_page_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemId"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"heading"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemTitle"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"cover_photo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemPhoto"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemContent"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemCreatedAt"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemUpdatedAt"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"pageTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pageTitle"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves each post of news</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/news</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>For pagination needs parameter e.g : http://kings.ge/Api/news?page=2</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-news-each-post">Get news each post</h2>
+
+<p>
+  This is detail page of Ana&rsquo;s post
+</p>
+
+<p>
+  Post - Object
+</p>
+
+<p>
+  PageTitle - Title of page
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"post"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemId"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"heading"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemTitle"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cover_photo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemPhoto"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemContent"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemCreatedAt"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemUpdatedAt"</span><span class="w">    
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"pageTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pageTitle"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all posts of ana&rsquo;s page.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/news/{id}</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>{id}</td>
+<td>For pagination needs parameter e.g : http://kings.ge/Api/news/{id}</td>
+</tr>
+</tbody></table>
+
+<!-- about page -->
+
+<h2 id="get-about-page">Get about page</h2>
+
+<p>
+  This page is text page
+</p>
+
+<p>
+  Page - Object
+</p>
+
+<p>
+  PageTitle - Title of page
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemId"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemTitle"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemContent"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemCreatedAt"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemUpdatedAt"</span><span class="w"> </span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slug"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"pageTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pageTitle"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves about page</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/about</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
+<!-- payment page -->
+
+<h2 id="get-payment-page">Get payment page</h2>
+
+<p>
+  This page is text page
+</p>
+
+<p>
+  Page - Object
+</p>
+
+<p>
+  PageTitle - Title of page
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemId"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemTitle"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemContent"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemCreatedAt"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemUpdatedAt"</span><span class="w"> </span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slug"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"pageTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pageTitle"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves payment page</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/payment</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
+<!-- partners page -->
+
+<h2 id="get-partners-page">Get partners page</h2>
+
+<p>
+  This page is text page
+</p>
+
+<p>
+  Page - Object
+</p>
+
+<p>
+  PageTitle - Title of page
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemId"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemTitle"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemContent"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemCreatedAt"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemUpdatedAt"</span><span class="w"> </span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slug"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"pageTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pageTitle"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves partners page</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/partners</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
+<!-- contact page -->
+
+<h2 id="get-contact-page">Get contact page</h2>
+
+<p>
+  This page is text page
+</p>
+
+<p>
+  Page - Object
+</p>
+
+<p>
+  PageTitle - Title of page
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"address"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemCreatedAt"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemUpdatedAt"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"pageTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"კონტაქტი"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves contact page</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/contact</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
+<!-- places page -->
+
+<h2 id="get-places-page">Get places page</h2>
+
+<p>
+  This page has lists
+</p>
+
+<p>
+  lists - Objects
+</p>
+
+<p>
+  PageTitle - Title of page
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"lists"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemId"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemCity"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemAddress"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"map_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemMapLink"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemCreatedAt"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemUpdatedAt"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"pageTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Title of page"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves places page</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/places</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
+<!-- schedule page -->
+
+<h2 id="get-schedule-page">Get schedule page</h2>
+
+<p>
+  This page is text page
+</p>
+
+<p>
+  Page - Object
+</p>
+
+<p>
+  PageTitle - Title of page
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemId"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemTitle"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemContent"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemCreatedAt"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemUpdatedAt"</span><span class="w"> </span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slug"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"pageTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pageTitle"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves schedule page</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/schedule</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
+<!-- rules page -->
+
+<h2 id="get-rules-page">Get rules page</h2>
+
+<p>
+  This page is text page
+</p>
+
+<p>
+  Page - Object
+</p>
+
+<p>
+  PageTitle - Title of page
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemId"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemTitle"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemContent"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemCreatedAt"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemUpdatedAt"</span><span class="w"> </span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slug"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"pageTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pageTitle"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves rules page</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/rules</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
+<!-- preparation page -->
+
+<h2 id="get-preparation-page">Get preparation page</h2>
+
+<p>
+  This page is text page
+</p>
+
+<p>
+  Page - Object
+</p>
+
+<p>
+  PageTitle - Title of page
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemId"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemTitle"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemContent"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemCreatedAt"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemUpdatedAt"</span><span class="p">,</span><span class="w"> 
+      </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slug"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"pageTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pageTitle"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves preparation page</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/preparation</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
+<!-- rating page -->
+
+<h2 id="get-ratings-page">Get ratings page</h2>
+
+<p>
+  This page is text page
+</p>
+
+<p>
+  list - Objects, if has not parameters - [],
+</p>
+
+<p>
+  schoolClasses - For select box (school_class_id)
+</p>
+
+<p>
+  active_ratings - For tabs (result_context_id)
+</p>
+
+<p>For more details <a target="_blank" href="http://kings.ge/ratings">http://kings.ge/ratings</a></p>
+
+<p>
+  PageTitle - Title of page
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"pageTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Title of page"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemId"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"result_context_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemContextId"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemUid"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"school_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemSchoolClass"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemCity"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemTel"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"saerto_qula"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemSaertoQula"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"woonder_qula"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemWoonderQula"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"results"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemResults"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"result_woonder"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"school_class_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemSchoolCLassId"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemCreatedAt"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemUpdatedAt"</span><span class="p">,</span><span class="w">   
+        </span><span class="nt">"seen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemSeend"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"wseen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemWseen"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"wactive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemWactive"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"saxeli"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemSaxeli"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"block"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemBlock"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemPriority"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemColor"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"meta_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemMetaId"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"schoolClasses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemId"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemLabel"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemCreatedAt"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemUpdatedAt"</span><span class="w"> 
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"active_ratings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemId"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemLabel"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"max_score"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemMaxScore"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"greetings"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemGreetings"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"related_dir"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"active"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemActive"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemPriority"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemCreatedAt"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemUpdatedAt"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nt">"rating_heading"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemTitle"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"rating_active"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemRatingActive"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"rating_default_colors"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemDefaultColorActive"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"payments_active"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemPaymentsActive"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves ratings page</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/ratings</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>{result_context_id,school_class_id}</td>
+<td>For get lists need parameters e.g : http://kings.ge/Api/ratings/?result_context_id=12&amp;school_class_id=5</td>
 </tr>
 </tbody></table>
 
@@ -338,9 +1216,7 @@ Remember — a happy kitten is an authenticated kitten!
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="http">http</a>
           </div>
       </div>
     </div>
