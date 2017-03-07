@@ -199,7 +199,209 @@ Header | Description
 --------- | ------- |
 Accept | Content-Types that are acceptable for the response
 
-# Pages
+<!-- Profile registration and auth -->
+
+# Profile registration and auth
+
+## Create new user
+<p>
+  This service is registration in profile
+</p>
+<p>
+  Fields - name,surname,phone,email(not required),password,password confirmation,city,school, class
+</p>
+
+
+> The above command returns JSON structured like this:
+
+
+<p>
+  This endpoint creates new user in profile
+</p>
+
+<p>
+  except email all fields is required
+</p>
+
+### HTTP Request
+
+`POST http://kings.ge/auth/register`
+
+###Headers
+Header | Description
+--------- | ------- |
+Accept | Content-Types that are acceptable for the response
+
+## Auth
+<p>
+  This service is auth and return token
+</p>
+<p>
+  Fields - email or phone, password
+</p>
+
+
+> The above command returns JSON structured like this:
+
+<p>
+  All fields are required
+</p>
+
+### HTTP Request
+
+`POST http://kings.ge/Api/Authenticate`
+
+###Headers
+Header | Description
+--------- | ------- |
+Accept | Content-Types that are acceptable for the response
+
+<!-- Registration on olympiad -->
+
+# Registration on olympiad
+
+## Get fields for registration
+<p>
+  This service is registration on olympiad without profile
+</p>
+<p>
+  Fields - Objects
+</p>
+<p>
+  PageTitle - Title of page
+</p>
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "cities": {
+      ...
+    },
+    "schools": {
+      ...
+    },
+    "school_classes": {
+      ...
+    }
+    ....
+  }
+}
+```
+
+<p>
+  This endpoint retrieves all field of olympiad registration
+</p>
+
+### HTTP Request
+
+`GET http://kings.ge/Api/getRegisterData`
+
+###Headers
+Header | Description
+--------- | ------- |
+Accept | Content-Types that are acceptable for the response
+
+<!-- Get schools by city -->
+## Get schools by city
+<p>
+  This service is return schools by city_id
+</p>
+<p>
+  Schools - Objects
+</p>
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "schools": {
+      id: id,
+      label:label
+      ....
+    }
+  }
+}
+```
+
+This endpoint retrieves schools of city
+
+### HTTP Request
+
+`GET http://kings.ge/Api/getSchoolsByCity/{city_id}`
+
+###Headers
+Header | Description
+--------- | ------- |
+Accept | Content-Types that are acceptable for the response
+
+### Query Parameters
+
+Parameter | Description
+--------- | ------- |
+city_id | For tbilisi schools e.g : http://kings.ge/Api/getSchoolsByCity/1
+
+<!-- Get teacher by school -->
+## Get teachers by school
+<p>
+  This service is return teacher by school_id
+</p>
+<p>
+  Teachers - Objects
+</p>
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "teachers": {
+      id: id,
+      label:label
+      ....
+    }
+  }
+}
+```
+
+This endpoint retrieves teachers of school
+
+### HTTP Request
+
+`GET http://kings.ge/Api/getTeachersBySchool/{school_id}`
+
+###Headers
+Header | Description
+--------- | ------- |
+Accept | Content-Types that are acceptable for the response
+
+### Query Parameters
+
+Parameter | Description
+--------- | ------- |
+school_id |  e.g : http://kings.ge/Api/getSchoolsByCity/1
+
+<!-- Get teacher by school -->
+## Post registration
+<p>
+  This service store registration
+</p>
+<p>
+  All registartion data is required
+</p>
+
+> The above command returns JSON structured like this:
+
+
+### HTTP Request
+
+`Post http://kings.ge/register`
+
+
+# Text Pages
 
 ## Get Ana's page
 <p>
