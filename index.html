@@ -322,7 +322,283 @@ let api = kittn.authorize('meowmeowmeow');
 </tr>
 </tbody></table>
 
-<h1 id="pages">Pages</h1>
+<!-- Profile registration and auth -->
+
+<h1 id="profile-registration-and-auth">Profile registration and auth</h1>
+
+<h2 id="create-new-user">Create new user</h2>
+
+<p>
+  This service is registration in profile
+</p>
+
+<p>
+  Fields - name,surname,phone,email(not required),password,password confirmation,city,school, class
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+
+<p>
+  This endpoint creates new user in profile
+</p>
+
+<p>
+  except email all fields is required
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://kings.ge/auth/register</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
+<h2 id="auth">Auth</h2>
+
+<p>
+  This service is auth and return token
+</p>
+
+<p>
+  Fields - email or phone, password
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+
+<p>
+  All fields are required
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://kings.ge/Api/Authenticate</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
+<!-- Registration on olympiad -->
+
+<h1 id="registration-on-olympiad">Registration on olympiad</h1>
+
+<h2 id="get-fields-for-registration">Get fields for registration</h2>
+
+<p>
+  This service is registration on olympiad without profile
+</p>
+
+<p>
+  Fields - Objects
+</p>
+
+<p>
+  PageTitle - Title of page
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"cities"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"schools"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"school_classes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="err">....</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>
+  This endpoint retrieves all field of olympiad registration
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/getRegisterData</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
+<!-- Get schools by city -->
+
+<h2 id="get-schools-by-city">Get schools by city</h2>
+
+<p>
+  This service is return schools by city_id
+</p>
+
+<p>
+  Schools - Objects
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"schools"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="err">id:</span><span class="w"> </span><span class="err">id,</span><span class="w">
+      </span><span class="err">label:label</span><span class="w">
+      </span><span class="err">....</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves schools of city</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/getSchoolsByCity/{city_id}</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>city_id</td>
+<td>For tbilisi schools e.g : http://kings.ge/Api/getSchoolsByCity/1</td>
+</tr>
+</tbody></table>
+
+<!-- Get teacher by school -->
+
+<h2 id="get-teachers-by-school">Get teachers by school</h2>
+
+<p>
+  This service is return teacher by school_id
+</p>
+
+<p>
+  Teachers - Objects
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"teachers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="err">id:</span><span class="w"> </span><span class="err">id,</span><span class="w">
+      </span><span class="err">label:label</span><span class="w">
+      </span><span class="err">....</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves teachers of school</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/getTeachersBySchool/{school_id}</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>school_id</td>
+<td>e.g : http://kings.ge/Api/getSchoolsByCity/1</td>
+</tr>
+</tbody></table>
+
+<!-- Get teacher by school -->
+
+<h2 id="post-registration">Post registration</h2>
+
+<p>
+  This service store registration
+</p>
+
+<p>
+  All registartion data is required
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">Post http://kings.ge/register</code></p>
+
+<h1 id="text-pages">Text Pages</h1>
 
 <h2 id="get-ana-39-s-page">Get Ana&rsquo;s page</h2>
 
