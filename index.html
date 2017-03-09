@@ -326,6 +326,124 @@ let api = kittn.authorize('meowmeowmeow');
 
 <h1 id="profile-registration-and-auth">Profile registration and auth</h1>
 
+<!-- Get schools by city -->
+
+<h2 id="get-schools-by-city">Get schools by city</h2>
+
+<p>
+  This service is return schools by city_id
+</p>
+
+<p>
+  Schools - Objects
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"schools"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="err">id:</span><span class="w"> </span><span class="err">id,</span><span class="w">
+      </span><span class="err">label:label</span><span class="w">
+      </span><span class="err">....</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves schools of city</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/getSchoolsByCity/{city_id}</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>city_id</td>
+<td>For tbilisi schools e.g : http://kings.ge/Api/getSchoolsByCity/1</td>
+</tr>
+</tbody></table>
+
+<!-- Get teacher by school -->
+
+<h2 id="get-teachers-by-school">Get teachers by school</h2>
+
+<p>
+  This service is return teacher by school_id
+</p>
+
+<p>
+  Teachers - Objects
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"teachers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="err">id:</span><span class="w"> </span><span class="err">id,</span><span class="w">
+      </span><span class="err">label:label</span><span class="w">
+      </span><span class="err">....</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves teachers of school</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/getTeachersBySchool/{school_id}</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>school_id</td>
+<td>e.g : http://kings.ge/Api/getSchoolsByCity/1</td>
+</tr>
+</tbody></table>
+
 <h2 id="create-new-user">Create new user</h2>
 
 <p>
@@ -578,7 +696,7 @@ let api = kittn.authorize('meowmeowmeow');
 </tr>
 </tbody></table>
 
-<!-- Get teacher by school -->
+<!-- Post register -->
 
 <h2 id="post-registration">Post registration</h2>
 
@@ -1428,6 +1546,100 @@ let api = kittn.authorize('meowmeowmeow');
 <tr>
 <td>{result_context_id,school_class_id}</td>
 <td>For get lists need parameters e.g : http://kings.ge/Api/ratings/?result_context_id=12&amp;school_class_id=5</td>
+</tr>
+</tbody></table>
+
+<!-- Profile logic -->
+
+<h1 id="profile-pages">Profile pages</h1>
+
+<!-- Get user profile -->
+
+<h2 id="get-user-profile">Get user profile</h2>
+
+<p>
+  This service is retrieve user profile
+</p>
+
+<p>
+  
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">Get http://kings.ge/Api/getProfile</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>This request needs token(after auth returned)</td>
+</tr>
+</tbody></table>
+
+<!-- Change personal info -->
+
+<h2 id="change-personal-info">Change personal info</h2>
+
+<p>
+  This service is update user personal info
+</p>
+
+<p>
+  Fields(not required) - user_email,pname(parent name),plname(parent lastname),pphone(parent phone)
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">Post http://kings.ge/Api/changePersonaInfo</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>This request needs token(after auth returned)</td>
+</tr>
+</tbody></table>
+
+<!-- Update password -->
+
+<h2 id="update-password">Update password</h2>
+
+<p>
+  This service is change password
+</p>
+
+<p>
+  Fields - old_password,password(new password),password_confirmation(new password confirm)
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">Post http://kings.ge/Api/changePassword</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>This request needs token(after auth returned)</td>
 </tr>
 </tbody></table>
 
