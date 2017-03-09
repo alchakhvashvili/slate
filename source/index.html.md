@@ -203,6 +203,86 @@ Accept | Content-Types that are acceptable for the response
 
 # Profile registration and auth
 
+<!-- Get schools by city -->
+## Get schools by city
+<p>
+  This service is return schools by city_id
+</p>
+<p>
+  Schools - Objects
+</p>
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "schools": {
+      id: id,
+      label:label
+      ....
+    }
+  }
+}
+```
+
+This endpoint retrieves schools of city
+
+### HTTP Request
+
+`GET http://kings.ge/Api/getSchoolsByCity/{city_id}`
+
+###Headers
+Header | Description
+--------- | ------- |
+Accept | Content-Types that are acceptable for the response
+
+### Query Parameters
+
+Parameter | Description
+--------- | ------- |
+city_id | For tbilisi schools e.g : http://kings.ge/Api/getSchoolsByCity/1
+
+<!-- Get teacher by school -->
+## Get teachers by school
+<p>
+  This service is return teacher by school_id
+</p>
+<p>
+  Teachers - Objects
+</p>
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+    "teachers": {
+      id: id,
+      label:label
+      ....
+    }
+  }
+}
+```
+
+This endpoint retrieves teachers of school
+
+### HTTP Request
+
+`GET http://kings.ge/Api/getTeachersBySchool/{school_id}`
+
+###Headers
+Header | Description
+--------- | ------- |
+Accept | Content-Types that are acceptable for the response
+
+### Query Parameters
+
+Parameter | Description
+--------- | ------- |
+school_id |  e.g : http://kings.ge/Api/getSchoolsByCity/1
+
 ## Create new user
 <p>
   This service is registration in profile
@@ -211,9 +291,7 @@ Accept | Content-Types that are acceptable for the response
   Fields - name,surname,phone,email(not required),password,password confirmation,city,school, class
 </p>
 
-
 > The above command returns JSON structured like this:
-
 
 <p>
   This endpoint creates new user in profile
@@ -384,7 +462,7 @@ Parameter | Description
 --------- | ------- |
 school_id |  e.g : http://kings.ge/Api/getSchoolsByCity/1
 
-<!-- Get teacher by school -->
+<!-- Post register -->
 ## Post registration
 <p>
   This service store registration
@@ -1062,3 +1140,65 @@ Accept | Content-Types that are acceptable for the response
 Parameters | Description
 --------- | ------- | 
 {result_context_id,school_class_id} | For get lists need parameters e.g : http://kings.ge/Api/ratings/?result_context_id=12&school_class_id=5
+
+<!-- Profile logic -->
+
+# Profile pages
+
+<!-- Get user profile -->
+## Get user profile
+<p>
+  This service is retrieve user profile
+</p>
+<p>
+  
+</p>
+
+
+### HTTP Request
+
+`Get http://kings.ge/Api/getProfile`
+
+###Headers
+Header | Description
+--------- | ------- |
+Token | This request needs token(after auth returned)
+
+<!-- Change personal info -->
+## Change personal info
+<p>
+  This service is update user personal info
+</p>
+<p>
+  Fields(not required) - user_email,pname(parent name),plname(parent lastname),pphone(parent phone)
+</p>
+
+
+
+### HTTP Request
+
+`Post http://kings.ge/Api/changePersonaInfo`
+
+###Headers
+Header | Description
+--------- | ------- |
+Token | This request needs token(after auth returned)
+
+<!-- Update password -->
+## Update password
+<p>
+  This service is change password
+</p>
+<p>
+  Fields - old_password,password(new password),password_confirmation(new password confirm)
+</p>
+
+
+### HTTP Request
+
+`Post http://kings.ge/Api/changePassword`
+
+###Headers
+Header | Description
+--------- | ------- |
+Token | This request needs token(after auth returned)
