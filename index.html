@@ -1558,7 +1558,7 @@ let api = kittn.authorize('meowmeowmeow');
 <h2 id="get-user-profile">Get user profile</h2>
 
 <p>
-  This service is retrieve user profile
+  This service retrieves user profile
 </p>
 
 <p>
@@ -1640,6 +1640,274 @@ let api = kittn.authorize('meowmeowmeow');
 <tr>
 <td>Token</td>
 <td>This request needs token(after auth returned)</td>
+</tr>
+</tbody></table>
+
+<!-- Get notifications -->
+
+<h2 id="get-notifications">Get notifications</h2>
+
+<p>
+  This service retrieves notifications
+</p>
+
+<p>
+  
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">Get http://kings.ge/Api/notifications/get</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>This request needs token(after auth returned)</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>for pagination  e.x http://kings.ge/Api/notifications/get?page=2</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>for several notifications e.x http://kings.ge/Api/notifications/get?limit=5</td>
+</tr>
+</tbody></table>
+
+<!-- Search notifications -->
+
+<h2 id="search-notifications">Search notifications</h2>
+
+<p>
+  This service retrieves notifications by keyword
+</p>
+
+<p>
+  
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">Get http://kings.ge/Api/notifications/search</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>This request needs token(after auth returned)</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>keyword</td>
+<td>e.x http://kings.ge/Api/notifications/search?keyword=&ldquo;გილოცავთ&rdquo;</td>
+</tr>
+</tbody></table>
+
+<!-- Hide notification -->
+
+<h2 id="hide-notification">Hide notification</h2>
+
+<p>
+  This service hide notification
+</p>
+
+<p>
+  
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">Post http://kings.ge/Api/notifications/hide</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>This request needs token(after auth returned)</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>notification id, e.x http://kings.ge/Api/notifications/hide&quot;</td>
+</tr>
+</tbody></table>
+
+<!-- Delete notifications -->
+
+<h2 id="delete-notifications">Delete notifications</h2>
+
+<p>
+  This service delete notifications
+</p>
+
+<p>
+  
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">Post http://kings.ge/Api/notifications/delete</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>This request needs token(after auth returned)</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ids</td>
+<td>notification ids(array of notification ids e.x [300,301,&hellip;.]) , e.x  http://kings.ge/Api/notifications/delete&quot;</td>
+</tr>
+</tbody></table>
+
+<!-- Read notification -->
+
+<h2 id="read-notification">Read notification</h2>
+
+<p>
+  This service mark notification as read
+</p>
+
+<p>
+  
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">Post http://kings.ge/Api/notifications/read</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>This request needs token(after auth returned)</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>notificationId</td>
+<td>e.x  http://kings.ge/Api/notifications/hide&quot;</td>
+</tr>
+</tbody></table>
+
+<!-- Count notification -->
+
+<h2 id="count-notifications">Count notifications</h2>
+
+<p>
+  This service count newest notifications
+</p>
+
+<p>
+  
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">Post http://kings.ge/Api/notifications/count</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>This request needs token(after auth returned)</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>notificationId</td>
+<td>e.x  http://kings.ge/Api/notifications/count&quot;</td>
 </tr>
 </tbody></table>
 
