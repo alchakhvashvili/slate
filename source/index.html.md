@@ -1148,7 +1148,7 @@ Parameters | Description
 <!-- Get user profile -->
 ## Get user profile
 <p>
-  This service is retrieve user profile
+  This service retrieves user profile
 </p>
 <p>
   
@@ -1172,7 +1172,6 @@ Token | This request needs token(after auth returned)
 <p>
   Fields(not required) - user_email,pname(parent name),plname(parent lastname),pphone(parent phone)
 </p>
-
 
 
 ### HTTP Request
@@ -1202,3 +1201,159 @@ Token | This request needs token(after auth returned)
 Header | Description
 --------- | ------- |
 Token | This request needs token(after auth returned)
+
+<!-- Get notifications -->
+## Get notifications
+<p>
+  This service retrieves notifications
+</p>
+<p>
+  
+</p>
+
+
+### HTTP Request
+
+`Get http://kings.ge/Api/notifications/get`
+
+###Headers
+
+Header | Description
+--------- | ------- |
+Token | This request needs token(after auth returned)
+
+### Query Parameters
+
+Parameters | Description
+--------- | ------- |
+page| for pagination  e.x http://kings.ge/Api/notifications/get?page=2
+limit| for several notifications e.x http://kings.ge/Api/notifications/get?limit=5 
+
+<!-- Search notifications -->
+## Search notifications
+<p>
+  This service retrieves notifications by keyword
+</p>
+<p>
+  
+</p>
+
+
+### HTTP Request
+
+`Get http://kings.ge/Api/notifications/search`
+
+###Headers
+
+Header | Description
+--------- | ------- |
+Token | This request needs token(after auth returned)
+
+### Query Parameters
+
+Parameters | Description
+--------- | ------- |
+keyword|  e.x http://kings.ge/Api/notifications/search?keyword="გილოცავთ"
+
+<!-- Hide notification -->
+## Hide notification
+<p>
+  This service hide notification
+</p>
+<p>
+  
+</p>
+
+
+### HTTP Request
+
+`Post http://kings.ge/Api/notifications/hide`
+
+###Headers
+
+Header | Description
+--------- | ------- |
+Token | This request needs token(after auth returned)
+
+### Query Parameters
+
+Parameters | Description
+--------- | ------- |
+id| notification id, e.x http://kings.ge/Api/notifications/hide"
+
+<!-- Delete notifications -->
+## Delete notifications
+<p>
+  This service delete notifications
+</p>
+<p>
+  
+</p>
+
+
+### HTTP Request
+
+`Post http://kings.ge/Api/notifications/delete`
+
+###Headers
+
+Header | Description
+--------- | ------- |
+Token | This request needs token(after auth returned)
+
+### Query Parameters
+
+Parameters | Description
+--------- | ------- |
+ids| notification ids(array of notification ids e.x [300,301,....]) , e.x  http://kings.ge/Api/notifications/delete"
+
+<!-- Read notification -->
+## Read notification
+<p>
+  This service mark notification as read
+</p>
+<p>
+  
+</p>
+
+### HTTP Request
+
+`Post http://kings.ge/Api/notifications/read`
+
+###Headers
+
+Header | Description
+--------- | ------- |
+Token | This request needs token(after auth returned)
+
+### Query Parameters
+
+Parameters | Description
+--------- | ------- |
+notificationId| e.x  http://kings.ge/Api/notifications/hide"
+
+<!-- Count notification -->
+## Count notifications
+<p>
+  This service count newest notifications
+</p>
+<p>
+  
+</p>
+
+### HTTP Request
+
+`Post http://kings.ge/Api/notifications/count`
+
+###Headers
+
+Header | Description
+--------- | ------- |
+Token | This request needs token(after auth returned)
+
+### Query Parameters
+
+Parameters | Description
+--------- | ------- |
+notificationId| e.x  http://kings.ge/Api/notifications/count"
+
