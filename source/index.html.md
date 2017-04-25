@@ -327,7 +327,7 @@ Accept | Content-Types that are acceptable for the response
 
 ### HTTP Request
 
-`POST http://kings.ge/Api/Authenticate`
+`POST http://kings.ge/Api/Auth/Authenticate`
 
 ###Headers
 Header | Description
