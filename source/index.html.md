@@ -286,16 +286,29 @@ school_id |  e.g : http://kings.ge/Api/getSchoolsByCity/1
 
 
 <!-- Register To Profile GET/POST -->
-## Register To profile
+## Register To profile GET/POST
+
+    
+> The above command returns JSON structured like this:
+
+```json
+{
+  "status" : "ok",
+  "phone" : "5555555555",
+  "isMobileVerified": 0
+}
+```
+
+### HTTP Request GET
+
+`GET http://kings.ge/Api/getRegisterData/1`
 
 <p>
   This endpoint retrieves all field of profile registration
 </p>
 
-### HTTP Request
 
-`GET http://kings.ge/Api/getRegisterData/1`
-
+### HTTP Request POST
 
 <p>
   This service is registration in profile
@@ -312,24 +325,12 @@ school_id |  e.g : http://kings.ge/Api/getSchoolsByCity/1
   except email all fields is required
 </p>
 
-
-### HTTP Request
-
 `POST http://kings.ge/Api/Auth/register`
 
     If register is success service returns response in JSON format:
     It means that user is successfuly registered and system send verification code to requested phone and need to verify his phone number
     
-    
-> The above command returns JSON structured like this:
 
-```json
-{
-  "status" : "ok",
-  "phone" : "5555555555",
-  "isMobileVerified": 0
-}
-```
 
 ## Verify Phone Number
 
