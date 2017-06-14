@@ -285,8 +285,17 @@ Parameter | Description
 school_id |  e.g : http://kings.ge/Api/getSchoolsByCity/1
 
 
-<!-- Register To Profile -->
+<!-- Register To Profile GET/POST -->
 ## Register To profile
+
+<p>
+  This endpoint retrieves all field of profile registration
+</p>
+
+### HTTP Request
+
+`GET http://kings.ge/Api/getRegisterData/1`
+
 
 <p>
   This service is registration in profile
@@ -911,6 +920,10 @@ Accept | Content-Types that are acceptable for the response
       "email": "email",
       "created_at": "itemCreatedAt",
       "updated_at": "itemUpdatedAt"
+      "emails": [
+        "subject" : "email addres",
+        ...
+      ]
     },
     "pageTitle": "კონტაქტი"
   }
