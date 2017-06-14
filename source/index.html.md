@@ -122,7 +122,8 @@ Some api
         "locale": "ka",
         "created_at": "slideCreatedAt",
         "updated_at": "slideUpdateAt",
-        "link": "SlideLink"
+        "link": "SlideLink",
+        "mobileSrc": "Image for mobile devices"
       }
     ]
   }
@@ -283,15 +284,16 @@ Parameter | Description
 --------- | ------- |
 school_id |  e.g : http://kings.ge/Api/getSchoolsByCity/1
 
-## Create new user
+
+<!-- Register To Profile -->
+## Register To profile
+
 <p>
   This service is registration in profile
 </p>
 <p>
   Fields - name,surname,phone,email(not required),password,password confirmation,city,school, class
 </p>
-
-> The above command returns JSON structured like this:
 
 <p>
   This endpoint creates new user in profile
@@ -301,14 +303,73 @@ school_id |  e.g : http://kings.ge/Api/getSchoolsByCity/1
   except email all fields is required
 </p>
 
+
 ### HTTP Request
 
-`POST http://kings.ge/auth/register`
+`POST http://kings.ge/Api/Auth/register`
 
-###Headers
-Header | Description
---------- | ------- |
-Accept | Content-Types that are acceptable for the response
+    If register is success service returns response in JSON format:
+    It means that user is successfuly registered and system send verification code to requested phone and need to verify his phone number
+    
+    
+> The above command returns JSON structured like this:
+
+```json
+{
+  "status" : "ok",
+  "phone" : "5555555555",
+  "isMobileVerified": 0
+}
+```
+
+## Verify Phone Number
+
+<p>
+  This service for verify mobile number
+</p>
+
+<p>
+  Fields required - phone, code(verifiction code received from the system to requested phone number)
+</p>
+
+<p>
+  This endpoint verifys the phone number and returns response ( isMobileVerified=1 and the welcome text which must be used only once. This text must be shown on the profile main page when user is logged in first time only) 
+</p>
+
+
+### HTTP Request
+
+`POST http://kings.ge/Api/Auth/checkVerify`
+
+## Send again
+
+<p>
+  This service is used to send verification code to the requested phone (Any service which uses sending sms to the phone number is limited 5 sms per day (24 hours))
+</p>
+
+<p>
+  Fields required - phone
+</p>
+
+
+### HTTP Request
+
+`POST http://kings.ge/Api/Auth/sendAgain`
+
+## Forgot password
+
+<p>
+  This service is used to reset user's current password and send newly setted password to the requested phone number
+</p>
+
+<p>
+  Fields required - phone
+</p>
+
+
+### HTTP Request
+
+`POST http://kings.ge/Api/Auth/forgotPassword`
 
 ## Auth
 <p>
