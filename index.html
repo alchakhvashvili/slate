@@ -445,9 +445,28 @@ let api = kittn.authorize('meowmeowmeow');
 </tr>
 </tbody></table>
 
-<!-- Register To Profile -->
+<!-- Register To Profile GET/POST -->
 
-<h2 id="register-to-profile">Register To profile</h2>
+<h2 id="register-to-profile-get-post">Register To profile GET/POST</h2>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"phone"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"5555555555"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"isMobileVerified"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="http-request-get">HTTP Request GET</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/getRegisterData/1</code></p>
+
+<p>
+  This endpoint retrieves all field of profile registration
+</p>
+
+<h3 id="http-request-post">HTTP Request POST</h3>
 
 <p>
   This service is registration in profile
@@ -465,22 +484,11 @@ let api = kittn.authorize('meowmeowmeow');
   except email all fields is required
 </p>
 
-<h3 id="http-request">HTTP Request</h3>
-
 <p><code class="prettyprint">POST http://kings.ge/Api/Auth/register</code></p>
 
 <p>If register is success service returns response in JSON format:
     It means that user is successfuly registered and system send verification code to requested phone and need to verify his phone number</p>
 
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"status"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"phone"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"5555555555"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"isMobileVerified"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
 <h2 id="verify-phone-number">Verify Phone Number</h2>
 
 <p>
@@ -1233,6 +1241,10 @@ let api = kittn.authorize('meowmeowmeow');
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemCreatedAt"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemUpdatedAt"</span><span class="w">
+      </span><span class="s2">"emails"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"subject"</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="s2">"email addres"</span><span class="p">,</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+      </span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"pageTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"კონტაქტი"</span><span class="w">
   </span><span class="p">}</span><span class="w">
