@@ -236,7 +236,8 @@ let api = kittn.authorize('meowmeowmeow');
         </span><span class="nt">"locale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ka"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slideCreatedAt"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slideUpdateAt"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SlideLink"</span><span class="w">
+        </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SlideLink"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"mobileSrc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image for mobile devices"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -444,7 +445,9 @@ let api = kittn.authorize('meowmeowmeow');
 </tr>
 </tbody></table>
 
-<h2 id="create-new-user">Create new user</h2>
+<!-- Register To Profile -->
+
+<h2 id="register-to-profile">Register To profile</h2>
 
 <p>
   This service is registration in profile
@@ -453,10 +456,6 @@ let api = kittn.authorize('meowmeowmeow');
 <p>
   Fields - name,surname,phone,email(not required),password,password confirmation,city,school, class
 </p>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
 
 <p>
   This endpoint creates new user in profile
@@ -468,21 +467,65 @@ let api = kittn.authorize('meowmeowmeow');
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST http://kings.ge/auth/register</code></p>
+<p><code class="prettyprint">POST http://kings.ge/Api/Auth/register</code></p>
 
-<h3 id="headers">Headers</h3>
+<p>If register is success service returns response in JSON format:
+    It means that user is successfuly registered and system send verification code to requested phone and need to verify his phone number</p>
 
-<table><thead>
-<tr>
-<th>Header</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Accept</td>
-<td>Content-Types that are acceptable for the response</td>
-</tr>
-</tbody></table>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"phone"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"5555555555"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"isMobileVerified"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="verify-phone-number">Verify Phone Number</h2>
+
+<p>
+  This service for verify mobile number
+</p>
+
+<p>
+  Fields required - phone, code(verifiction code received from the system to requested phone number)
+</p>
+
+<p>
+  This endpoint verifys the phone number and returns response ( isMobileVerified=1 and the welcome text which must be used only once. This text must be shown on the profile main page when user is logged in first time only) 
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://kings.ge/Api/Auth/checkVerify</code></p>
+
+<h2 id="send-again">Send again</h2>
+
+<p>
+  This service is used to send verification code to the requested phone (Any service which uses sending sms to the phone number is limited 5 sms per day (24 hours))
+</p>
+
+<p>
+  Fields required - phone
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://kings.ge/Api/Auth/sendAgain</code></p>
+
+<h2 id="forgot-password">Forgot password</h2>
+
+<p>
+  This service is used to reset user&rsquo;s current password and send newly setted password to the requested phone number
+</p>
+
+<p>
+  Fields required - phone
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://kings.ge/Api/Auth/forgotPassword</code></p>
 
 <h2 id="auth">Auth</h2>
 
