@@ -1161,6 +1161,34 @@ let api = kittn.authorize('meowmeowmeow');
 </tr>
 </tbody></table>
 
+<!-- Payment Action -->
+
+<h2 id="payment-action">Payment Action</h2>
+
+<p>
+  This service returns redirect url of cartu payment page
+</p>
+
+<p>This endpoint retrieves payment page</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/getPaymentUrl</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
 <!-- partners page -->
 
 <h2 id="get-partners-page">Get partners page</h2>
@@ -1683,6 +1711,36 @@ let api = kittn.authorize('meowmeowmeow');
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">Post http://kings.ge/Api/changePassword</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>This request needs token(after auth returned)</td>
+</tr>
+</tbody></table>
+
+<!-- Change mobile -->
+
+<h2 id="change-mobile">Change mobile</h2>
+
+<p>
+  This service is change mobile
+</p>
+
+<p>
+  Fields - new mobile phone
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">Post http://kings.ge/Api/changeMobile</code></p>
 
 <h3 id="headers">Headers</h3>
 
