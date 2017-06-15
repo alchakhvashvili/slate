@@ -1730,12 +1730,25 @@ let api = kittn.authorize('meowmeowmeow');
 
 <h2 id="change-mobile">Change mobile</h2>
 
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"change_mobile"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"new_phone"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"5555555555"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"isMobileVerified"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>
   This service is change mobile
 </p>
 
 <p>
   Fields - new mobile phone
+</p>
+
+<p>
+    If register is success service returns response in JSON format It means that new mobile phone is setted successfully and new verification code is sent to newly setted phone number
 </p>
 
 <h3 id="http-request">HTTP Request</h3>
