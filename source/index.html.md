@@ -854,6 +854,24 @@ Header | Description
 --------- | ------- |
 Accept | Content-Types that are acceptable for the response
 
+<!-- Payment Action -->
+
+## Payment Action
+<p>
+  This service returns redirect url of cartu payment page
+</p>
+
+This endpoint retrieves payment page
+
+### HTTP Request
+
+`GET http://kings.ge/Api/getPaymentUrl`
+
+###Headers
+Header | Description
+--------- | ------- |
+Accept | Content-Types that are acceptable for the response
+
 <!-- partners page -->
 
 ## Get partners page
@@ -1271,6 +1289,25 @@ Token | This request needs token(after auth returned)
 ### HTTP Request
 
 `Post http://kings.ge/Api/changePassword`
+
+###Headers
+Header | Description
+--------- | ------- |
+Token | This request needs token(after auth returned)
+
+<!-- Change mobile -->
+## Change mobile
+<p>
+  This service is change mobile
+</p>
+<p>
+  Fields - new mobile phone
+</p>
+
+
+### HTTP Request
+
+`Post http://kings.ge/Api/changeMobile`
 
 ###Headers
 Header | Description
