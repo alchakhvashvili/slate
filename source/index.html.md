@@ -1297,11 +1297,26 @@ Token | This request needs token(after auth returned)
 
 <!-- Change mobile -->
 ## Change mobile
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "change_mobile" : "ok",
+  "new_phone" : "5555555555",
+  "isMobileVerified": 0
+}
+```
+
 <p>
   This service is change mobile
 </p>
 <p>
   Fields - new mobile phone
+</p>
+<p>
+    If register is success service returns response in JSON format It means that new mobile phone is setted successfully and new verification code is sent to newly setted phone number
 </p>
 
 
