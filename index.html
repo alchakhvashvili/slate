@@ -1324,7 +1324,9 @@ let api = kittn.authorize('meowmeowmeow');
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemId"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemCity"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemAddress"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"map_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemMapLink"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"map_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemMapLink"</span><span class="p">,</span><span class="w">                
+        </span><span class="nt">"lat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"41.70478230"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"lng"</span><span class="p">:</span><span class="w"> </span><span class="s2">"41.87634523"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemCreatedAt"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemUpdatedAt"</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -1358,7 +1360,7 @@ let api = kittn.authorize('meowmeowmeow');
 <h2 id="get-schedule-page">Get schedule page</h2>
 
 <p>
-  This page is text page
+  This page is list of all olympiad schedule
 </p>
 
 <p>
@@ -1374,23 +1376,100 @@ let api = kittn.authorize('meowmeowmeow');
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemId"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemTitle"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemContent"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemCreatedAt"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"itemUpdatedAt"</span><span class="w"> </span><span class="p">,</span><span class="w"> 
-      </span><span class="nt">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slug"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"pageTitle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pageTitle"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+    </span><span class="nt">"მათემატიკა"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"schedule_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"tour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I ტური"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13 მაისი"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"ქართული ენა"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"schedule_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"tour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I ტური"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10 მაისი"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="err">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves schedule detailed information about classes and hours</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/schedule</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Content-Types that are acceptable for the response</td>
+</tr>
+</tbody></table>
+
+<!-- schedule detailed page -->
+
+<h2 id="get-schedule-detailed-page-by-hours">Get schedule detailed page by hours</h2>
+
+<p>
+  Detailed page of specific olympiad by hours
+</p>
+
+<p>
+  Page - Object
+</p>
+
+<p>
+  PageTitle - Title of page
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10:00"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"classes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5,6,7"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12:00"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"classes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8,9,10"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="err">...</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ქართული ენა"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I ტური"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10 მაისი"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"rest_tours"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"tour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"II ტური"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11 მაისი"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"tour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ფინალური ტური"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12 მაისი"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="err">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves schedule page</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://kings.ge/Api/schedule</code></p>
+<p><code class="prettyprint">GET http://kings.ge/Api/scheduleHours/{schedule_id}</code></p>
 
 <h3 id="headers">Headers</h3>
 
@@ -1632,6 +1711,87 @@ let api = kittn.authorize('meowmeowmeow');
 </tr>
 </tbody></table>
 
+<!-- Get Result -->
+
+<h2 id="get-result-page">Get Result page</h2>
+
+<p>
+  This page is for getting the result
+</p>
+
+<p>
+  Page - Object
+</p>
+
+<p>
+  PageTitle - Title of page
+</p>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"woonderCorrectAnswers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"C\r\n"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"correctAnswers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"woonderResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"woonderAnswers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"C"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"cograntWoonderText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"თქვენ დააგროვეთ &lt;b&gt;4 ქულა 10-დან&lt;/b&gt;. გილოცავთ! თქვენ წარმატებით გაიარეთ ვუნდერკინგსის შესარჩევი ეტაპი და მოიპოვეთ სეზონის კულმინაციურ მოვლენაში მონაწილეობის უფლება. 4 ივნისს - აღმოაჩინე შენში ვუნდერკინგსი!"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"woonderResultShare"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://ge.ge/woonder-result/352681/woonder/4"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"userAnswers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"B"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"C"</span><span class="p">,</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"olympiad"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ინგლისური (აღდგენითი I ტური)"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"congratText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"კინგსელო, გილოცავთ! თქვენ დააგროვეთ ქულათა მაქსიმუმი და მოხვდით საუკეთესო მოსწავლეთა 1 პროცენტში. გელით 26 მარტს, ინგლისური ენის ოლიმპიადის II ტურზე. "</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"resultShareUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://ge.ge/t2i/352681/100-120/100"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves detailed result of unique code that are passed as parameter</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/result/{uid}</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
 <!-- Profile logic -->
 
 <h1 id="profile-pages">Profile pages</h1>
@@ -1753,7 +1913,7 @@ let api = kittn.authorize('meowmeowmeow');
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">Post http://kings.ge/Api/changeMobile</code></p>
+<p><code class="prettyprint">POST http://kings.ge/Api/changeMobile</code></p>
 
 <h3 id="headers">Headers</h3>
 
@@ -1783,7 +1943,7 @@ let api = kittn.authorize('meowmeowmeow');
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">Get http://kings.ge/Api/notifications/get</code></p>
+<p><code class="prettyprint">GET http://kings.ge/Api/notifications/get</code></p>
 
 <h3 id="headers">Headers</h3>
 
@@ -1831,7 +1991,7 @@ let api = kittn.authorize('meowmeowmeow');
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">Get http://kings.ge/Api/notifications/search</code></p>
+<p><code class="prettyprint">GET http://kings.ge/Api/notifications/search</code></p>
 
 <h3 id="headers">Headers</h3>
 
@@ -1875,7 +2035,7 @@ let api = kittn.authorize('meowmeowmeow');
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">Post http://kings.ge/Api/notifications/hide</code></p>
+<p><code class="prettyprint">POST http://kings.ge/Api/notifications/hide</code></p>
 
 <h3 id="headers">Headers</h3>
 
@@ -1919,7 +2079,7 @@ let api = kittn.authorize('meowmeowmeow');
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">Post http://kings.ge/Api/notifications/delete</code></p>
+<p><code class="prettyprint">POST http://kings.ge/Api/notifications/delete</code></p>
 
 <h3 id="headers">Headers</h3>
 
@@ -1963,7 +2123,7 @@ let api = kittn.authorize('meowmeowmeow');
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">Post http://kings.ge/Api/notifications/read</code></p>
+<p><code class="prettyprint">POST http://kings.ge/Api/notifications/read</code></p>
 
 <h3 id="headers">Headers</h3>
 
@@ -2007,7 +2167,7 @@ let api = kittn.authorize('meowmeowmeow');
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">Post http://kings.ge/Api/notifications/count</code></p>
+<p><code class="prettyprint">POST http://kings.ge/Api/notifications/count</code></p>
 
 <h3 id="headers">Headers</h3>
 
@@ -2034,6 +2194,46 @@ let api = kittn.authorize('meowmeowmeow');
 <tr>
 <td>notificationId</td>
 <td>e.x  http://kings.ge/Api/notifications/count&quot;</td>
+</tr>
+</tbody></table>
+
+<!-- Attach Result -->
+
+<h2 id="attach-result">Attach Result</h2>
+
+<p>
+  This service attaches result to the profile
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://kings.ge/Api/attachResult</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>This request needs token(after auth returned)</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>uid</td>
+<td>e.x  http://kings.ge/Api/attachResult&quot;</td>
 </tr>
 </tbody></table>
 
