@@ -983,7 +983,9 @@ Accept | Content-Types that are acceptable for the response
         "id": "itemId",
         "city": "itemCity",
         "address": "itemAddress",
-        "map_link": "itemMapLink",
+        "map_link": "itemMapLink",                
+        "lat": "41.70478230",
+        "lng": "41.87634523",
         "created_at": "itemCreatedAt",
         "updated_at": "itemUpdatedAt"
       }
@@ -1009,7 +1011,7 @@ Accept | Content-Types that are acceptable for the response
 
 ## Get schedule page
 <p>
-  This page is text page
+  This page is list of all olympiad schedule
 </p>
 <p>
   Page - Object
@@ -1024,20 +1026,28 @@ Accept | Content-Types that are acceptable for the response
 ```json
 {
   "data": {
-    "page": {
-      "id": "itemId",
-      "title": "itemTitle",
-      "content": "itemContent",
-      "created_at": "itemCreatedAt",
-      "updated_at": "itemUpdatedAt" , 
-      "slug": "slug"
-    },
-    "pageTitle": "pageTitle"
+    "მათემატიკა": [
+        {
+            "schedule_id": 6,
+            "tour": "I ტური",
+            "date": "13 მაისი"
+        },
+        ...
+    ],
+    "ქართული ენა": [
+        {
+            "schedule_id": 3,
+            "tour": "I ტური",
+            "date": "10 მაისი"
+        },
+        ...
+    ],
+    ...
   }
 }
 ```
 
-This endpoint retrieves schedule page
+This endpoint retrieves schedule detailed information about classes and hours
 
 ### HTTP Request
 
@@ -1047,6 +1057,71 @@ This endpoint retrieves schedule page
 Header | Description
 --------- | ------- |
 Accept | Content-Types that are acceptable for the response
+
+
+
+
+<!-- schedule detailed page -->
+
+## Get schedule detailed page by hours
+<p>
+  Detailed page of specific olympiad by hours
+</p>
+<p>
+  Page - Object
+</p>
+<p>
+  PageTitle - Title of page
+</p>
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+        "items": [
+                {
+                    "time": "10:00",
+                    "classes": "5,6,7"
+                },
+                {
+                    "time": "12:00",
+                    "classes": "8,9,10"
+                },
+                ...
+            ]
+        },
+        "subject": "ქართული ენა",
+        "tour": "I ტური",
+        "date": "10 მაისი",
+        "rest_tours": [
+            {
+                "tour": "II ტური",
+                "date": "11 მაისი"
+            },
+            {
+                "tour": "ფინალური ტური",
+                "date": "12 მაისი"
+            }
+        ]
+  }
+}
+```
+
+This endpoint retrieves schedule page
+
+### HTTP Request
+
+`GET http://kings.ge/Api/scheduleHours/{schedule_id}`
+
+###Headers
+Header | Description
+--------- | ------- |
+Accept | Content-Types that are acceptable for the response
+
+
+
 
 <!-- rules page -->
 
@@ -1234,6 +1309,86 @@ Parameters | Description
 --------- | ------- | 
 {result_context_id,school_class_id} | For get lists need parameters e.g : http://kings.ge/Api/ratings/?result_context_id=12&school_class_id=5
 
+
+
+<!-- Get Result -->
+
+## Get Result page
+<p>
+  This page is for getting the result
+</p>
+<p>
+  Page - Object
+</p>
+<p>
+  PageTitle - Title of page
+</p>
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": {
+        "woonderCorrectAnswers": [
+            "A",
+            "B",
+            "C",
+            "C",
+            "C\r\n"
+        ],
+        "correctAnswers": [
+            "A",
+            "C",
+            "B",
+            "B",
+            "C",
+            "B",
+            "C",
+            ...
+        ],
+        "woonderResult": 4,
+        "woonderAnswers": [
+            "C",
+            "B",
+            "B",
+            "B",
+            "C"
+        ],
+        "cograntWoonderText": "თქვენ დააგროვეთ <b>4 ქულა 10-დან</b>. გილოცავთ! თქვენ წარმატებით გაიარეთ ვუნდერკინგსის შესარჩევი ეტაპი და მოიპოვეთ სეზონის კულმინაციურ მოვლენაში მონაწილეობის უფლება. 4 ივნისს - აღმოაჩინე შენში ვუნდერკინგსი!",
+        "woonderResultShare": "http://ge.ge/woonder-result/352681/woonder/4",
+        "userAnswers": [
+            "A",
+            "C",
+            "B",
+            "B",
+            "C",
+            "B",
+            "C",
+            ...
+        ],
+        "result": "100",
+        "olympiad": "ინგლისური (აღდგენითი I ტური)",
+        "congratText": "კინგსელო, გილოცავთ! თქვენ დააგროვეთ ქულათა მაქსიმუმი და მოხვდით საუკეთესო მოსწავლეთა 1 პროცენტში. გელით 26 მარტს, ინგლისური ენის ოლიმპიადის II ტურზე. ",
+        "resultShareUrl": "http://ge.ge/t2i/352681/100-120/100"
+  }
+}
+```
+
+This endpoint retrieves detailed result of unique code that are passed as parameter
+
+### HTTP Request
+
+`GET http://kings.ge/Api/result/{uid}`
+
+###Headers
+Header | Description
+--------- | ------- |
+
+
+
+
+
 <!-- Profile logic -->
 
 # Profile pages
@@ -1322,7 +1477,7 @@ Token | This request needs token(after auth returned)
 
 ### HTTP Request
 
-`Post http://kings.ge/Api/changeMobile`
+`POST http://kings.ge/Api/changeMobile`
 
 ###Headers
 Header | Description
@@ -1341,7 +1496,7 @@ Token | This request needs token(after auth returned)
 
 ### HTTP Request
 
-`Get http://kings.ge/Api/notifications/get`
+`GET http://kings.ge/Api/notifications/get`
 
 ###Headers
 
@@ -1368,7 +1523,7 @@ limit| for several notifications e.x http://kings.ge/Api/notifications/get?limit
 
 ### HTTP Request
 
-`Get http://kings.ge/Api/notifications/search`
+`GET http://kings.ge/Api/notifications/search`
 
 ###Headers
 
@@ -1394,7 +1549,7 @@ keyword|  e.x http://kings.ge/Api/notifications/search?keyword="გილოც�
 
 ### HTTP Request
 
-`Post http://kings.ge/Api/notifications/hide`
+`POST http://kings.ge/Api/notifications/hide`
 
 ###Headers
 
@@ -1420,7 +1575,7 @@ id| notification id, e.x http://kings.ge/Api/notifications/hide"
 
 ### HTTP Request
 
-`Post http://kings.ge/Api/notifications/delete`
+`POST http://kings.ge/Api/notifications/delete`
 
 ###Headers
 
@@ -1445,7 +1600,7 @@ ids| notification ids(array of notification ids e.x [300,301,....]) , e.x  http:
 
 ### HTTP Request
 
-`Post http://kings.ge/Api/notifications/read`
+`POST http://kings.ge/Api/notifications/read`
 
 ###Headers
 
@@ -1470,7 +1625,7 @@ notificationId| e.x  http://kings.ge/Api/notifications/hide"
 
 ### HTTP Request
 
-`Post http://kings.ge/Api/notifications/count`
+`POST http://kings.ge/Api/notifications/count`
 
 ###Headers
 
@@ -1483,4 +1638,26 @@ Token | This request needs token(after auth returned)
 Parameters | Description
 --------- | ------- |
 notificationId| e.x  http://kings.ge/Api/notifications/count"
+
+<!-- Attach Result -->
+## Attach Result
+<p>
+  This service attaches result to the profile
+</p>
+
+### HTTP Request
+
+`POST http://kings.ge/Api/attachResult`
+
+###Headers
+
+Header | Description
+--------- | ------- |
+Token | This request needs token(after auth returned)
+
+### Query Parameters
+
+Parameters | Description
+--------- | ------- |
+uid| e.x  http://kings.ge/Api/attachResult"
 
