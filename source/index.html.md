@@ -637,7 +637,8 @@ page | For pagination needs parameter e.g : http://kings.ge/Api/ana?page=2
       "created_at": "itemCreatedAt",
       "updated_at": "itemUpdatedAt"    
     },
-    "pageTitle": "pageTitle"
+    "pageTitle": "pageTitle",
+    "shareUrl": "https://www.facebook.com/sharer/sharer.php?u=http://kings.ge/anna/{id}"
   }
 }
 ```
@@ -746,7 +747,8 @@ page | For pagination needs parameter e.g : http://kings.ge/Api/news?page=2
       "created_at": "itemCreatedAt",
       "updated_at": "itemUpdatedAt"    
     },
-    "pageTitle": "pageTitle"
+    "pageTitle": "pageTitle",
+    "shareUrl": "https://www.facebook.com/sharer/sharer.php?u=http://kings.ge/post/{id}"
   }
 }
 ```
