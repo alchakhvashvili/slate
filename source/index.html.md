@@ -1702,3 +1702,81 @@ Parameters | Description
 --------- | ------- |
 uid| e.x  http://kings.ge/Api/attachResult"
 
+<!-- Testing -->
+## Testing Get
+
+<p>
+    GET asks
+</p>
+
+<p>
+    პასუხები answers ობიექტში უნდა შეინახოთ { ask_id: answer_id }, /done ენდპოინტზე გამოაგზავნოთ
+</p>
+
+
+```json
+{
+  "data": {
+    "asks": {
+     .... 
+    } 
+  }
+}
+```
+
+### HTTP Request
+
+`GET http://kings.ge/Api/testing/get`
+
+###Headers
+
+Header | Description
+--------- | ------- |
+Token | This request needs token(after auth returned)
+
+### Query Parameters
+
+Parameters | Description
+--------- | ------- |
+class     | რომელ კლასსაც აირჩევს
+subject    |რომელ საგანსაც აირჩევს
+tour      |რომელ ტურსაც აირჩევს
+
+<!-- Testing done -->
+## Testing Done
+
+<p>
+    პასუხების შემოწმება
+</p>
+
+<p>
+   Params -  Answers: {
+       ask_id: answer_id,
+       ....
+   } 
+</p>
+
+### HTTP Request
+
+`GET http://kings.ge/Api/testing/done`
+
+
+```json
+{
+  "data": {
+    "correct": corrects 
+  }
+}
+```
+
+###Headers
+
+Header | Description
+--------- | ------- |
+Token | This request needs token(after auth returned)
+
+### Query Parameters
+
+Parameters | Description
+--------- | ------- |
+answers     | ობიექტი სადაც შენახულია - კითხვა:პასუხი, 
