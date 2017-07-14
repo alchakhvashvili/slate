@@ -1486,6 +1486,45 @@ Header | Description
 --------- | ------- |
 Token | This request needs token(after auth returned)
 
+<!-- Profile olympiad register -->
+## Profile olympiad register
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "status" : "ok"
+}
+```
+
+<p>
+  პროფილიდან ოლიმპიადაზე რეგისტრაცია
+</p>
+<p>
+  Params - subject_id, teacher_id
+</p>
+<p>
+    ამ სერვისს სჭირდება subject_id რომელ საგანზეც რეგისტრირდება და ასეევე teacher_id რომელსაც არსებული სერვისით იუზერის სკოლის მიხედვით წამოიღებთ
+</p>
+
+
+### HTTP Request
+
+`POST http://kings.ge/Api/olympiadRegister`
+
+### Query Parameters
+
+Parameters | Description
+--------- | ------- |
+subject_id| რომელ საგანზეც რეგისტრირდება
+teacher_id| რომელ მასწავლებელსაც აირჩევს   
+
+###Headers
+Header | Description
+--------- | ------- |
+Token | This request needs token(after auth returned)
+
 <!-- Get notifications -->
 ## Get notifications
 <p>
