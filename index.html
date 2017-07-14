@@ -1931,6 +1931,65 @@ let api = kittn.authorize('meowmeowmeow');
 </tr>
 </tbody></table>
 
+<!-- Profile olympiad register -->
+
+<h2 id="profile-olympiad-register">Profile olympiad register</h2>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>
+  პროფილიდან ოლიმპიადაზე რეგისტრაცია
+</p>
+
+<p>
+  Params - subject_id, teacher_id
+</p>
+
+<p>
+    ამ სერვისს სჭირდება subject_id რომელ საგანზეც რეგისტრირდება და ასეევე teacher_id რომელსაც არსებული სერვისით იუზერის სკოლის მიხედვით წამოიღებთ
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://kings.ge/Api/olympiadRegister</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>subject_id</td>
+<td>რომელ საგანზეც რეგისტრირდება</td>
+</tr>
+<tr>
+<td>teacher_id</td>
+<td>რომელ მასწავლებელსაც აირჩევს</td>
+</tr>
+</tbody></table>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>This request needs token(after auth returned)</td>
+</tr>
+</tbody></table>
+
 <!-- Get notifications -->
 
 <h2 id="get-notifications">Get notifications</h2>
@@ -2236,6 +2295,117 @@ let api = kittn.authorize('meowmeowmeow');
 <tr>
 <td>uid</td>
 <td>e.x  http://kings.ge/Api/attachResult&quot;</td>
+</tr>
+</tbody></table>
+
+<!-- Testing -->
+
+<h2 id="testing-get">Testing Get</h2>
+
+<p>
+    GET asks
+</p>
+
+<p>
+    პასუხები answers ობიექტში უნდა შეინახოთ { ask_id: answer_id }, /done ენდპოინტზე გამოაგზავნოთ
+</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"asks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="err">....</span><span class="w"> 
+    </span><span class="p">}</span><span class="w"> 
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/testing/get</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>This request needs token(after auth returned)</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>class</td>
+<td>რომელ კლასსაც აირჩევს</td>
+</tr>
+<tr>
+<td>subject</td>
+<td>რომელ საგანსაც აირჩევს</td>
+</tr>
+<tr>
+<td>tour</td>
+<td>რომელ ტურსაც აირჩევს</td>
+</tr>
+</tbody></table>
+
+<!-- Testing done -->
+
+<h2 id="testing-done">Testing Done</h2>
+
+<p>
+    პასუხების შემოწმება
+</p>
+
+<p>
+   Params -  Answers: {
+       ask_id: answer_id,
+       &hellip;.
+   } 
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/testing/done</code></p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"correct"</span><span class="p">:</span><span class="w"> </span><span class="err">corrects</span><span class="w"> 
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>This request needs token(after auth returned)</td>
+</tr>
+</tbody></table>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>answers</td>
+<td>ობიექტი სადაც შენახულია - კითხვა:პასუხი,</td>
 </tr>
 </tbody></table>
 
