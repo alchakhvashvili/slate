@@ -1628,7 +1628,7 @@ Token | This request needs token(after auth returned)
 
 Parameters | Description
 --------- | ------- |
-ids| notification ids(array of notification ids e.x [300,301,....]) , e.x  http://kings.ge/Api/notifications/delete"
+id| notification id(e.x 300) , e.x  http://kings.ge/Api/notifications/delete"
 
 <!-- Read notification -->
 ## Read notification
