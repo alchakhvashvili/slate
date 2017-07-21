@@ -1525,6 +1525,54 @@ Header | Description
 --------- | ------- |
 Token | This request needs token(after auth returned)
 
+###Headers
+Header | Description
+--------- | ------- |
+Token | This request needs token(after auth returned)
+
+<!-- Profile see result -->
+## Result from profile
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data" : {
+    'tour_id': tourId,
+    subject_id: subjectId
+    'result'': result,
+  }
+}
+```
+
+<p>
+  პროფილიდან შედეგის ნახვა
+</p>
+<p>
+  Params - subject_id, tour_id
+</p>
+<p>
+    ამ სერვისს სჭირდება subject_id რომელ საგანზეც რეგისტრირდება და tour_id რომელი ტურის შედეგის ნახვაც უნდა
+</p>
+
+
+### HTTP Request
+
+`POST http://kings.ge/Api/result`
+
+### Query Parameters
+
+Parameters | Description
+--------- | ------- |
+subject_id| რომელ საგანზეც რეგისტრირდება
+tour_id| რომელ ტურსაც აირჩევს 
+
+###Headers
+Header | Description
+--------- | ------- |
+Token | This request needs token(after auth returned)
+
 <!-- Get notifications -->
 ## Get notifications
 <p>
