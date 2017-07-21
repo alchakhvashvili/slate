@@ -1990,6 +1990,83 @@ let api = kittn.authorize('meowmeowmeow');
 </tr>
 </tbody></table>
 
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>This request needs token(after auth returned)</td>
+</tr>
+</tbody></table>
+
+<!-- Profile see result -->
+
+<h2 id="result-from-profile">Result from profile</h2>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">'tour_id':</span><span class="w"> </span><span class="err">tourId,</span><span class="w">
+    </span><span class="err">subject_id:</span><span class="w"> </span><span class="err">subjectId</span><span class="w">
+    </span><span class="err">'result'':</span><span class="w"> </span><span class="err">result,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>
+  პროფილიდან შედეგის ნახვა
+</p>
+
+<p>
+  Params - subject_id, tour_id
+</p>
+
+<p>
+    ამ სერვისს სჭირდება subject_id რომელ საგანზეც რეგისტრირდება და tour_id რომელი ტურის შედეგის ნახვაც უნდა
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://kings.ge/Api/result</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>subject_id</td>
+<td>რომელ საგანზეც რეგისტრირდება</td>
+</tr>
+<tr>
+<td>tour_id</td>
+<td>რომელ ტურსაც აირჩევს</td>
+</tr>
+</tbody></table>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>This request needs token(after auth returned)</td>
+</tr>
+</tbody></table>
+
 <!-- Get notifications -->
 
 <h2 id="get-notifications">Get notifications</h2>
