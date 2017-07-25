@@ -2004,6 +2004,58 @@ let api = kittn.authorize('meowmeowmeow');
 </tr>
 </tbody></table>
 
+<!-- Check olympiad register by subject_id -->
+
+<h2 id="check-if-auth-user-is-registered-on-olympiad-or-not-by-subject_id">Check if auth user is registered on olympiad or not by subject_id</h2>
+
+<p>If is registered above service returns 1, if not - 0</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST http://kings.ge/Api/checkOlympiadRegister/{subject_id}</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>subject_id</td>
+<td>on which subject is auth user is registered or not</td>
+</tr>
+</tbody></table>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>This request needs token(after auth returned)</td>
+</tr>
+</tbody></table>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>This request needs token(after auth returned)</td>
+</tr>
+</tbody></table>
+
 <!-- Profile see result -->
 
 <h2 id="result-from-profile">Result from profile</h2>
