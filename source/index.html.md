@@ -1530,6 +1530,42 @@ Header | Description
 --------- | ------- |
 Token | This request needs token(after auth returned)
 
+
+
+
+
+<!-- Check olympiad register by subject_id -->
+## Check if auth user is registered on olympiad or not by subject_id
+
+
+If is registered above service returns 1, if not - 0
+
+### HTTP Request
+
+`POST http://kings.ge/Api/checkOlympiadRegister/{subject_id}`
+
+### Query Parameters
+
+Parameters | Description
+--------- | ------- |
+subject_id| on which subject is auth user is registered or not
+
+###Headers
+Header | Description
+--------- | ------- |
+Token | This request needs token(after auth returned)
+
+###Headers
+Header | Description
+--------- | ------- |
+Token | This request needs token(after auth returned)
+
+
+
+
+
+
+
 <!-- Profile see result -->
 ## Result from profile
 
