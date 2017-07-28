@@ -1419,8 +1419,6 @@ Header | Description
 }
 ```
 
-This endpoint retrieves detailed result of unique code that are passed as parameter
-
 ### HTTP Request
 
 `GET http://kings.ge/Api/getTif/{result_id}`
@@ -1445,8 +1443,6 @@ result_id | For get lists need parameters e.g : http://kings.ge/Api/getTif/21185
   "status": "Image is successfully deleted"
 }
 ```
-
-This endpoint retrieves detailed result of unique code that are passed as parameter
 
 ### HTTP Request
 
