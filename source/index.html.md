@@ -1391,6 +1391,79 @@ Header | Description
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Get tiff as png -->
+
+## Get tiff as PNG format
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "PNGPath": "http://kings.ge/images/tiff2png/21185.png"
+}
+```
+
+This endpoint retrieves detailed result of unique code that are passed as parameter
+
+### HTTP Request
+
+`GET http://kings.ge/Api/getTif/{result_id}`
+
+Parameters | Description
+--------- | ------- | 
+result_id | For get lists need parameters e.g : http://kings.ge/Api/getTif/21185
+
+
+
+
+
+
+<!-- Delete png -->
+
+## Delete PNG image
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "status": "Image is successfully deleted"
+}
+```
+
+This endpoint retrieves detailed result of unique code that are passed as parameter
+
+### HTTP Request
+
+`GET http://kings.ge/Api/delPng/{result_id}`
+
+Parameters | Description
+--------- | ------- | 
+result_id | For get lists need parameters e.g : http://kings.ge/Api/delPng/21185
+
+
+
+
+
+
+
+
+
 <!-- Profile logic -->
 
 # Profile pages
