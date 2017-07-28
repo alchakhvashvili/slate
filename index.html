@@ -1794,6 +1794,64 @@ let api = kittn.authorize('meowmeowmeow');
 </thead><tbody>
 </tbody></table>
 
+<!-- Get tiff as png -->
+
+<h2 id="get-tiff-as-png-format">Get tiff as PNG format</h2>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"PNGPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://kings.ge/images/tiff2png/21185.png"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves detailed result of unique code that are passed as parameter</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/getTif/{result_id}</code></p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result_id</td>
+<td>For get lists need parameters e.g : http://kings.ge/Api/getTif/21185</td>
+</tr>
+</tbody></table>
+
+<!-- Delete png -->
+
+<h2 id="delete-png-image">Delete PNG image</h2>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image is successfully deleted"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves detailed result of unique code that are passed as parameter</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://kings.ge/Api/delPng/{result_id}</code></p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>result_id</td>
+<td>For get lists need parameters e.g : http://kings.ge/Api/delPng/21185</td>
+</tr>
+</tbody></table>
+
 <!-- Profile logic -->
 
 <h1 id="profile-pages">Profile pages</h1>
