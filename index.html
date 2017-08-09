@@ -747,6 +747,48 @@ let api = kittn.authorize('meowmeowmeow');
 </tr>
 </tbody></table>
 
+<!-- Update teacher -->
+
+<h2 id="update-teacher">Update teacher</h2>
+
+<p>
+  This service updates teacher
+</p>
+
+<p>
+  
+</p>
+
+<p><code class="prettyprint">POST http://kings.ge/Api/updateTeacher</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>teacher_id</td>
+<td>რომელ მასწავლებელსაც აირჩევს</td>
+</tr>
+</tbody></table>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>This request needs token(after auth returned)</td>
+</tr>
+</tbody></table>
+
 <!-- Post register -->
 
 <h2 id="post-registration">Post registration</h2>
@@ -1897,6 +1939,70 @@ let api = kittn.authorize('meowmeowmeow');
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">Post http://kings.ge/Api/changePersonaInfo</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>This request needs token(after auth returned)</td>
+</tr>
+</tbody></table>
+
+<!-- Upload avatar -->
+
+<h2 id="upload-avatar">Upload avatar</h2>
+
+<p>
+  This service uploads avatar
+</p>
+
+<p>
+  Params: avatar
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">Get http://kings.ge/Api/uploadAvatar</code></p>
+
+<h3 id="headers">Headers</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>This request needs token(after auth returned)</td>
+</tr>
+<tr>
+<td>content-type</td>
+<td>multipart/form-data</td>
+</tr>
+</tbody></table>
+
+<!-- Delete avatar -->
+
+<h2 id="delete-avatar">Delete avatar</h2>
+
+<p>
+  This service deletes avatar
+</p>
+
+<p>
+  
+</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">Get http://kings.ge/Api/deleteAvatar</code></p>
 
 <h3 id="headers">Headers</h3>
 
