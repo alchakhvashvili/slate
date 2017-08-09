@@ -533,6 +533,29 @@ Parameter | Description
 --------- | ------- |
 school_id |  e.g : http://kings.ge/Api/getSchoolsByCity/1
 
+<!-- Update teacher -->
+## Update teacher
+<p>
+  This service updates teacher
+</p>
+<p>
+  
+</p>
+
+
+`POST http://kings.ge/Api/updateTeacher`
+
+### Query Parameters
+
+Parameters | Description
+--------- | ------- |
+teacher_id| რომელ მასწავლებელსაც აირჩევს   
+
+###Headers
+Header | Description
+--------- | ------- |
+Token | This request needs token(after auth returned)
+
 <!-- Post register -->
 ## Post registration
 <p>
@@ -1473,7 +1496,6 @@ result_id | For get lists need parameters e.g : http://kings.ge/Api/delPng/21185
   
 </p>
 
-
 ### HTTP Request
 
 `Get http://kings.ge/Api/getProfile`
@@ -1496,6 +1518,45 @@ Token | This request needs token(after auth returned)
 ### HTTP Request
 
 `Post http://kings.ge/Api/changePersonaInfo`
+
+###Headers
+Header | Description
+--------- | ------- |
+Token | This request needs token(after auth returned)
+
+<!-- Upload avatar -->
+## Upload avatar
+<p>
+  This service uploads avatar
+</p>
+<p>
+  Params: avatar
+</p>
+
+
+### HTTP Request
+
+`Get http://kings.ge/Api/uploadAvatar`
+
+###Headers
+Header | Description
+--------- | ------- |
+Token | This request needs token(after auth returned)
+content-type | multipart/form-data
+
+<!-- Delete avatar -->
+## Delete avatar
+<p>
+  This service deletes avatar
+</p>
+<p>
+  
+</p>
+
+
+### HTTP Request
+
+`Get http://kings.ge/Api/deleteAvatar`
 
 ###Headers
 Header | Description
